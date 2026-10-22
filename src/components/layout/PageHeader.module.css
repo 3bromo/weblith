@@ -1,0 +1,40 @@
+.header {
+  position: relative;
+  overflow: clip;
+  padding-block: clamp(3rem, 7vw, 5rem) clamp(2.25rem, 5vw, 3.5rem);
+  border-bottom: var(--border);
+  background: var(--color-bg);
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgb(22 19 15 / 0.04) 31px,
+    rgb(22 19 15 / 0.04) 32px
+  );
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.header > * {
+  position: relative;
+}
+
+.title {
+  margin-top: var(--space-4);
+  max-width: 22ch;
+}
+
+.lede {
+  margin-top: var(--space-4);
+  max-width: 44rem;
+}
+
+.extra {
+  margin-top: var(--space-5);
+}

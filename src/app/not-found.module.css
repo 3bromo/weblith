@@ -1,0 +1,31 @@
+.wrap {
+  display: grid;
+  place-items: center;
+  min-height: min(70vh, 40rem);
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  text-align: center;
+}
+
+.code {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-style: italic;
+  font-weight: 460;
+  line-height: 1;
+  color: var(--color-accent-text);
+  opacity: 0.9;
+}
+
+.title {
+  max-width: 18ch;
+}
+
+.lede {
+  max-width: 36rem;
+}
