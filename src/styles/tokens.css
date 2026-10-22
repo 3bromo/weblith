@@ -1,0 +1,130 @@
+/* ═══════════════════════════════════════════════════════════
+   WEBLITH DESIGN TOKENS
+   A single source of truth for color, type, space, radius,
+   shadow, motion. Every component consumes these variables.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Palette: "Ink & Ember" ───────────────────────────────
+     Warm paper neutrals, near-black ink, one vermilion accent
+     (evokes print/editorial spot color — no purple/blue
+     gradients, no glow). Contrast checked for WCAG AA.        */
+  --color-bg: #f6f3ec; /* warm paper */
+  --color-bg-subtle: #efeae0; /* section alternation */
+  --color-surface: #fffdf8; /* raised cards */
+  --color-surface-2: #faf7f0;
+
+  --color-ink: #16130f; /* headings / primary text */
+  --color-ink-soft: #4b443c; /* body text */
+  --color-ink-muted: #776e64; /* captions, meta (AA on paper) */
+
+  --color-line: #e3ddd1; /* hairline rules */
+  --color-line-strong: #cec5b5;
+
+  --color-accent: #c9431a; /* button / fill background (white text AA) */
+  --color-accent-hover: #a9360f;
+  --color-accent-text: #a9360f; /* accent as text on paper (AA) */
+  --color-accent-on-dark: #f07a52; /* accent text on ink (AA) */
+  --color-accent-soft: #f7e7de; /* tinted chips */
+
+  --color-ink-bg: #17140f; /* dark sections */
+  --color-ink-bg-raised: #201c16;
+  --color-on-ink: #f4f0e7; /* text on dark */
+  --color-on-ink-muted: #a89e91;
+
+  /* ── Status ────────────────────────────────────────────── */
+  --color-ok: #2f6b46;
+  --color-ok-soft: #e4efe7;
+  --color-warn-soft: #f7ecdf;
+
+  /* ── Typography ────────────────────────────────────────── */
+  --font-display: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype",
+    Georgia, "Times New Roman", serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --text-display: clamp(2.875rem, 6.4vw, 5.5rem);
+  --text-h1: clamp(2.375rem, 4.8vw, 3.75rem);
+  --text-h2: clamp(1.875rem, 3.4vw, 2.875rem);
+  --text-h3: clamp(1.375rem, 2vw, 1.75rem);
+  --text-h4: 1.1875rem;
+  --text-lede: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-xs: 0.8125rem;
+  --text-eyebrow: 0.75rem;
+
+  --leading-display: 1.02;
+  --leading-heading: 1.12;
+  --leading-body: 1.65;
+
+  --tracking-display: -0.02em;
+  --tracking-tight: -0.011em;
+  --tracking-eyebrow: 0.16em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* ── Space (8px rhythm) ────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 5rem;
+  --space-11: 6.5rem;
+  --space-12: 8.5rem;
+
+  /* ── Layout ────────────────────────────────────────────── */
+  --container-max: 73rem;
+  --container-wide: 80rem;
+  --container-pad: clamp(1.25rem, 4vw, 2.75rem);
+  --section-pad: clamp(4rem, 9vw, 7.5rem);
+
+  /* ── Radius ────────────────────────────────────────────── */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-full: 999px;
+
+  /* ── Borders & shadows (warm-tinted, restrained) ───────── */
+  --border: 1px solid var(--color-line);
+  --border-strong: 1px solid var(--color-line-strong);
+  --shadow-1: 0 1px 2px rgb(22 19 15 / 0.05);
+  --shadow-2: 0 2px 6px rgb(22 19 15 / 0.06),
+    0 18px 44px -22px rgb(22 19 15 / 0.28);
+  --shadow-3: 0 4px 10px rgb(22 19 15 / 0.07),
+    0 40px 80px -40px rgb(22 19 15 / 0.4);
+
+  /* ── Motion (used only inside no-preference queries) ───── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 160ms;
+  --dur-2: 300ms;
+  --dur-3: 600ms;
+
+  color-scheme: light;
+}
+
+/* Dark-section local overrides so components can reuse tokens
+   inside `.section--ink` blocks. */
+.on-ink {
+  --color-bg: var(--color-ink-bg);
+  --color-surface: var(--color-ink-bg-raised);
+  --color-line: rgb(244 240 231 / 0.14);
+  --color-line-strong: rgb(244 240 231 / 0.28);
+  --color-ink: var(--color-on-ink);
+  --color-ink-soft: rgb(244 240 231 / 0.82);
+  --color-ink-muted: var(--color-on-ink-muted);
+  --color-accent-text: var(--color-accent-on-dark);
+  color: var(--color-on-ink);
+}

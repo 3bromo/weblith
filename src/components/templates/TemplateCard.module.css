@@ -1,0 +1,448 @@
+/* ── Card shell ────────────────────────────────────────────── */
+.card {
+  display: grid;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+  transition: box-shadow var(--dur-2) var(--ease-out),
+    transform var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-line-strong);
+  box-shadow: var(--shadow-2);
+}
+
+.meta {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-4) var(--space-4);
+  border-top: var(--border);
+}
+
+.metaText {
+  display: grid;
+  gap: 0.1875rem;
+  min-width: 0;
+}
+
+.category {
+  color: var(--color-accent-text);
+  font-size: 0.6875rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 550;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.blurb {
+  margin-top: 0.25rem;
+  color: var(--color-ink-muted);
+  font-size: var(--text-xs);
+  line-height: 1.55;
+}
+
+.statusBadge {
+  flex-shrink: 0;
+  background: transparent;
+  border-style: dashed;
+  color: var(--color-ink-muted);
+  font-size: 0.6875rem;
+}
+
+/* ── Thumb base ────────────────────────────────────────────── */
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.miniNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: clamp(0.5rem, 1.6vw, 0.75rem) clamp(0.625rem, 2vw, 0.875rem);
+  font-size: clamp(0.5rem, 1.1vw, 0.625rem);
+  letter-spacing: 0.16em;
+}
+
+.miniDots {
+  letter-spacing: 0.1em;
+  opacity: 0.55;
+}
+
+/* Perfume — ivory gallery */
+.thumbPerfume {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #f2ead9;
+  color: #241f18;
+}
+
+.perfumeStack {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: clamp(0.25rem, 0.9vw, 0.4375rem);
+  padding-bottom: clamp(0.75rem, 2.5vw, 1.25rem);
+}
+
+.perfumeImg {
+  position: relative;
+  width: clamp(4.5rem, 34%, 7rem);
+  aspect-ratio: 4 / 5;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px -14px rgb(36 31 24 / 0.55);
+}
+
+.perfumeImg img {
+  object-fit: cover;
+}
+
+.perfumeKicker {
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  font-weight: 550;
+  letter-spacing: 0.02em;
+}
+
+.perfumeLink {
+  border-bottom: 1px solid #241f18;
+  font-size: clamp(0.5rem, 1vw, 0.59375rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Fashion — full bleed */
+.thumbFashion {
+  background: #17140f;
+}
+
+.thumbFashion img {
+  object-fit: cover;
+  object-position: center 24%;
+}
+
+.thumbFashion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgb(16 14 12 / 0.6),
+    transparent 55%
+  );
+}
+
+.fashionBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: clamp(0.5rem, 1.6vw, 0.75rem) clamp(0.625rem, 2vw, 0.875rem);
+  background: rgb(253 252 249 / 0.94);
+  color: #17140f;
+  font-size: clamp(0.5rem, 1.1vw, 0.625rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.2em;
+}
+
+.fashionTag {
+  position: absolute;
+  z-index: 1;
+  left: clamp(0.625rem, 2vw, 0.875rem);
+  bottom: clamp(0.5rem, 1.6vw, 0.75rem);
+  color: #f6f3ec;
+  font-family: var(--font-display);
+  font-size: clamp(0.8125rem, 2vw, 1.125rem);
+  font-weight: 520;
+}
+
+/* Commerce — product grid */
+.thumbCommerce {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #fbfaf7;
+  color: #1c1a16;
+}
+
+.thumbCommerce .miniNav {
+  border-bottom: 1px solid rgb(28 26 22 / 0.1);
+}
+
+.commerceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.25rem, 0.9vw, 0.4375rem);
+  padding: clamp(0.375rem, 1.3vw, 0.625rem);
+}
+
+.commerceImg {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.commerceImg img {
+  object-fit: cover;
+}
+
+.commerceTile {
+  position: relative;
+  border-radius: 3px;
+}
+
+.priceTag {
+  position: absolute;
+  left: 0.375rem;
+  bottom: 0.375rem;
+  padding: 0.09375rem 0.375rem;
+  background: rgb(253 252 249 / 0.92);
+  border-radius: 2px;
+  color: #1c1a16;
+  font-family: var(--font-mono);
+  font-size: clamp(0.4375rem, 0.9vw, 0.53125rem);
+}
+
+.priceTagLight {
+  background: rgb(23 20 15 / 0.75);
+  color: #f6f3ec;
+}
+
+/* Portfolio — typographic dark */
+.thumbPortfolio {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+  gap: clamp(0.25rem, 0.8vw, 0.4375rem);
+  background: #17140f;
+  color: #f2ede3;
+  padding: clamp(0.75rem, 2.4vw, 1.125rem);
+}
+
+.portfolioName {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3.4vw, 2rem);
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #f2ede3;
+}
+
+.portfolioRole {
+  color: rgb(242 237 227 / 0.65);
+  font-size: clamp(0.5rem, 1.05vw, 0.625rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.portfolioRow {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(0.375rem, 1.2vw, 0.625rem);
+  align-self: end;
+  min-height: 0;
+}
+
+.portfolioImg {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  min-height: clamp(3.5rem, 13vw, 5.5rem);
+}
+
+.portfolioImg img {
+  object-fit: cover;
+}
+
+.portfolioBlock {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: #c9431a;
+  color: #fff;
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-size: clamp(0.6875rem, 1.6vw, 0.875rem);
+  font-weight: 550;
+  line-height: 1.25;
+}
+
+/* Estate — split layout */
+.thumbEstate {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: #e9e7dd;
+  color: #23231e;
+}
+
+.estateImg {
+  position: relative;
+  min-height: 100%;
+}
+
+.estateImg img {
+  object-fit: cover;
+}
+
+.estateCopy {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: clamp(0.3125rem, 1vw, 0.5625rem);
+  padding: clamp(0.5rem, 1.8vw, 0.875rem);
+}
+
+.estateKicker {
+  font-size: clamp(0.4375rem, 0.9vw, 0.53125rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(35 35 30 / 0.6);
+}
+
+.estateHead {
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 1.9vw, 1.0625rem);
+  font-weight: 540;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.estateRow {
+  font-family: var(--font-mono);
+  font-size: clamp(0.4375rem, 0.85vw, 0.53125rem);
+  color: rgb(35 35 30 / 0.62);
+}
+
+.estateCta {
+  margin-top: clamp(0.125rem, 0.5vw, 0.25rem);
+  padding-bottom: 1px;
+  border-bottom: 1px solid #23231e;
+  font-size: clamp(0.4375rem, 0.9vw, 0.53125rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Restaurant — evening warmth */
+.thumbRestaurant {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: clamp(0.25rem, 0.9vw, 0.4375rem);
+  background: #2a1512;
+  color: #f1e5d4;
+  padding: clamp(0.625rem, 2vw, 1rem);
+  text-align: center;
+}
+
+.restName {
+  font-size: clamp(0.5rem, 1.1vw, 0.625rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.3em;
+}
+
+.restDivider {
+  width: 1.75rem;
+  height: 1px;
+  background: rgb(241 229 212 / 0.4);
+}
+
+.restLine {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(0.6875rem, 1.7vw, 0.9375rem);
+  color: #e8cfb2;
+}
+
+.restImg {
+  position: relative;
+  width: clamp(5.5rem, 46%, 8.5rem);
+  aspect-ratio: 16 / 9;
+  margin-top: clamp(0.125rem, 0.5vw, 0.25rem);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.restImg img {
+  object-fit: cover;
+}
+
+.restCta {
+  padding: clamp(0.1875rem, 0.7vw, 0.3125rem)
+    clamp(0.5rem, 1.5vw, 0.875rem);
+  border: 1px solid rgb(241 229 212 / 0.55);
+  border-radius: 999px;
+  font-size: clamp(0.4375rem, 0.9vw, 0.53125rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Business — composed corporate */
+.thumbBusiness {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  background: #eceeea;
+  color: #1f241f;
+}
+
+.thumbBusiness .miniNav {
+  border-bottom: 1px solid rgb(31 36 31 / 0.12);
+}
+
+.bizHead {
+  align-self: center;
+  max-width: 14ch;
+  padding: 0 clamp(0.625rem, 2vw, 0.875rem);
+  font-family: var(--font-display);
+  font-size: clamp(0.875rem, 2.3vw, 1.25rem);
+  font-weight: 540;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.bizCols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.375rem;
+  margin: 0 clamp(0.625rem, 2vw, 0.875rem);
+  padding-top: clamp(0.375rem, 1.2vw, 0.625rem);
+  border-top: 1px solid rgb(31 36 31 / 0.14);
+  color: rgb(31 36 31 / 0.66);
+  font-size: clamp(0.4375rem, 0.9vw, 0.53125rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bizCta {
+  margin: clamp(0.5rem, 1.6vw, 0.75rem) clamp(0.625rem, 2vw, 0.875rem)
+    clamp(0.625rem, 2vw, 0.875rem);
+  justify-self: start;
+  padding: clamp(0.25rem, 0.8vw, 0.375rem)
+    clamp(0.5rem, 1.5vw, 0.8125rem);
+  background: #1f241f;
+  color: #eceeea;
+  border-radius: 2px;
+  font-size: clamp(0.4375rem, 0.9vw, 0.53125rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
